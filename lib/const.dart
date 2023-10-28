@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 
 const textFieldColor = Color(0xFFedf8ff);
 const textFieldBorderColor = Color(0xFFd1eaff);
-
 const iconColor = Color(0xFFc0e0ff);
+const purpleColor = Color(0xFFb28cff);
+const whiteColor = Color(0xFFFFFFFF);
 
 final defaultTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
@@ -24,12 +25,18 @@ InputDecoration customInputDecoration({
     ),
     filled: true,
     fillColor: textFieldColor,
-    border: OutlineInputBorder(
-      borderSide: const BorderSide(
-        color: textFieldBorderColor,
-        width: 1.5,
-      ),
-      borderRadius: BorderRadius.circular(18),
+    errorBorder: outlineInputBorder(),
+    focusedBorder: outlineInputBorder(),
+    border: outlineInputBorder(),
+  );
+}
+
+OutlineInputBorder outlineInputBorder() {
+  return OutlineInputBorder(
+    borderSide: const BorderSide(
+      color: textFieldBorderColor,
+      width: 1.5,
     ),
+    borderRadius: BorderRadius.circular(18),
   );
 }

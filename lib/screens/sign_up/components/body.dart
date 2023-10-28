@@ -2,6 +2,7 @@ import 'package:devathon/const.dart';
 import 'package:devathon/screens/sign_up/components/sign_up_form.dart';
 import 'package:flutter/material.dart';
 
+import '../../../components/custom_image.dart';
 import '../../../size_config.dart';
 
 class Body extends StatelessWidget {
@@ -15,18 +16,8 @@ class Body extends StatelessWidget {
         child: Column(
           children: [
             // image
-            Expanded(
-              child: Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.contain,
-                    scale: 1.5,
-                    image: AssetImage(
-                      'assets/images/splash_3.png',
-                    ),
-                  ),
-                ),
-              ),
+            const Expanded(
+              child: CustomImage(),
             ),
             SizedBox(height: getProportionateScreenWidth(30)),
 

@@ -1,3 +1,4 @@
+import 'package:devathon/components/default_button.dart';
 import 'package:devathon/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -69,6 +70,14 @@ class _SignUpFormState extends State<SignUpForm> {
                 hintText: "********",
                 icon: Icons.lock,
               ),
+            ),
+
+            // defult button
+            SizedBox(height: getProportionateScreenWidth(20)),
+            DefaultButton(
+              text: "Create an Account",
+              borderRadius: 20,
+              press: () {},
             ),
           ],
         ),
