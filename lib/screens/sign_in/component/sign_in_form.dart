@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../components/default_button.dart';
 import '../../../const.dart';
+import '../../../services/auth_services.dart';
 import '../../../size_config.dart';
 
 class SignInForm extends StatefulWidget {
@@ -14,6 +15,17 @@ class SignInForm extends StatefulWidget {
 
 class _SignInFormState extends State<SignInForm> {
   final _formKey = GlobalKey<FormState>();
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -62,7 +74,9 @@ class _SignInFormState extends State<SignInForm> {
             DefaultButton(
               text: "Login",
               borderRadius: 20,
-              press: () {
+              press: () async {
+                AuthServices.signIn(
+                    emailController.text, passwordController.text);
                 Navigator.pushNamed(context, HomeScreen.routeName);
               },
             ),

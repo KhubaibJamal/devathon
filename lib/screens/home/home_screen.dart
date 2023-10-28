@@ -1,5 +1,6 @@
 import 'package:devathon/const.dart';
 import 'package:devathon/screens/home/component/body.dart';
+import 'package:devathon/screens/profile/profile.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,14 +14,22 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         backgroundColor: purpleColor,
         automaticallyImplyLeading: false,
-        title: const Row(
+        title: Row(
           children: [
-            Icon(Icons.menu_sharp),
-            Spacer(),
-            CircleAvatar(
-              radius: 25,
-              backgroundImage: AssetImage(
-                'assets/images/Rectangle 2.png',
+            const Icon(Icons.menu_sharp),
+            const Spacer(),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfileScreen()),
+                );
+              },
+              child: const CircleAvatar(
+                radius: 25,
+                backgroundImage: AssetImage(
+                  'assets/images/Rectangle 2.png',
+                ),
               ),
             )
           ],

@@ -3,7 +3,6 @@ import 'package:devathon/size_config.dart';
 import 'package:flutter/material.dart';
 
 import '../../../const.dart';
-import '../../../helper/helper.dart';
 import '../../../services/auth_services.dart';
 import '../../home/home_screen.dart';
 
@@ -19,11 +18,6 @@ class _SignUpFormState extends State<SignUpForm> {
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-
-  void setUserEmailAndPassword() {
-    Helper.setUserEmail(emailController.text);
-    Helper.setUserPassword(passwordController.text);
-  }
 
   @override
   void dispose() {
@@ -97,10 +91,9 @@ class _SignUpFormState extends State<SignUpForm> {
           DefaultButton(
             text: "Create an Account",
             borderRadius: 20,
-            press: () async {
-              final email = await Helper.getUserEmail();
-              final password = await Helper.getUserPassword();
-              AuthServices.signUp(email!, password!);
+            press: () {
+              AuthServices.signUp(
+                  emailController.text, passwordController.text);
               Navigator.pushNamed(context, HomeScreen.routeName);
             },
           ),
