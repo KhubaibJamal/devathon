@@ -1,3 +1,6 @@
+import 'package:devathon/route.dart';
+import 'package:devathon/screens/sign_up/sign_up_screen.dart';
+import 'package:devathon/theme.dart';
 import 'package:flutter/material.dart';
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -19,7 +22,9 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Devathon',
-        theme: ThemeData(),
+        theme: theme(),
+        initialRoute: SignUpScreen.routeName,
+        routes: routes,
       ),
     );
   }
