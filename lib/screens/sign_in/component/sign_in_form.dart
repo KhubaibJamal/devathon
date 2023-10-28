@@ -1,3 +1,4 @@
+import 'package:devathon/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/default_button.dart';
@@ -61,7 +62,9 @@ class _SignInFormState extends State<SignInForm> {
             DefaultButton(
               text: "Login",
               borderRadius: 20,
-              press: () {},
+              press: () {
+                Navigator.pushNamed(context, HomeScreen.routeName);
+              },
             ),
           ],
         ),

@@ -9,10 +9,14 @@ class DefaultButton extends StatelessWidget {
     required this.text,
     required this.press,
     this.borderRadius = 12,
+    this.backgroundColor = purpleColor,
+    this.textColor = whiteColor,
   }) : super(key: key);
   final String text;
   final VoidCallback press;
   final double? borderRadius;
+  final Color? backgroundColor;
+  final Color? textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +28,7 @@ class DefaultButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius!),
           ),
-          backgroundColor: purpleColor,
+          backgroundColor: backgroundColor,
         ),
         onPressed: press,
         child: Text(
@@ -32,7 +36,7 @@ class DefaultButton extends StatelessWidget {
           style: TextStyle(
             fontSize: getProportionateScreenWidth(20),
             fontWeight: FontWeight.bold,
-            color: whiteColor,
+            color: textColor,
           ),
         ),
       ),

@@ -6,6 +6,8 @@ const textFieldBorderColor = Color(0xFFd1eaff);
 const iconColor = Color(0xFFc0e0ff);
 const purpleColor = Color(0xFFb28cff);
 const whiteColor = Color(0xFFFFFFFF);
+const blueColor = Color(0xFF24a0ed);
+const textColor = Color(0xFF232f55);
 
 final defaultTextStyle = TextStyle(
   fontWeight: FontWeight.bold,

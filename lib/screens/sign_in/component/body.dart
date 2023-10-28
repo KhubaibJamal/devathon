@@ -1,4 +1,5 @@
 import 'package:devathon/screens/sign_in/component/sign_in_form.dart';
+import 'package:devathon/screens/sign_up/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/custom_image.dart';
@@ -23,13 +24,40 @@ class Body extends StatelessWidget {
 
             Expanded(
               flex: 2,
-              child: Column(
-                children: [
-                  // Text
-                  Text("Login", style: defaultTextStyle),
-                  SizedBox(height: getProportionateScreenWidth(30)),
-                  const SignInForm(),
-                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    // Text
+                    Text("Login", style: defaultTextStyle),
+                    SizedBox(height: getProportionateScreenWidth(30)),
+                    const SignInForm(), // register account
+                    SizedBox(height: getProportionateScreenWidth(20)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        const Text(
+                          "Not have an account?",
+                          style: TextStyle(
+                            color: Colors.grey,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(
+                                context, SignUpScreen.routeName);
+                          },
+                          child: const Text(
+                            "Sign Up.?",
+                            style: TextStyle(
+                              color: blueColor,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
