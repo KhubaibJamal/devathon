@@ -1,4 +1,5 @@
 import 'package:devathon/const.dart';
+import 'package:devathon/screens/doctors/doctors_screen.dart';
 import 'package:devathon/screens/home/component/body.dart';
 import 'package:devathon/screens/profile/profile.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,14 @@ class HomeScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: Row(
           children: [
-            const Icon(Icons.menu_sharp),
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const DoctorsScreen()));
+                },
+                icon: Icon(Icons.menu_sharp)),
             const Spacer(),
             GestureDetector(
               onTap: () {

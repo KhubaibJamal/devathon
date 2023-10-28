@@ -1,9 +1,9 @@
 import 'package:devathon/screens/appointment/appointment_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../../components/default_button.dart';
-import '../../../const.dart';
-import '../../../size_config.dart';
+import 'default_button.dart';
+import '../const.dart';
+import '../size_config.dart';
 
 class DoctorList extends StatelessWidget {
   final String drName;

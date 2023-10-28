@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../const.dart';
 import '../../../size_config.dart';
 import 'category_box.dart';
-import 'doctor_list.dart';
+import '../../../components/doctor_list.dart';
 
 class Category extends StatelessWidget {
   const Category({
