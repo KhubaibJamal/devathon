@@ -3,6 +3,9 @@ import 'package:devathon/size_config.dart';
 import 'package:flutter/material.dart';
 
 import '../../../const.dart';
+import '../../../helper/helper.dart';
+import '../../../services/auth_services.dart';
+import '../../home/home_screen.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -13,6 +16,22 @@ class SignUpForm extends StatefulWidget {
 
 class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  void setUserEmailAndPassword() {
+    Helper.setUserEmail(emailController.text);
+    Helper.setUserPassword(passwordController.text);
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -47,6 +66,7 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           const SizedBox(height: 5),
           TextFormField(
+            controller: emailController,
             decoration: customInputDecoration(
               hintText: "email@example.com",
               icon: Icons.email,
@@ -64,6 +84,7 @@ class _SignUpFormState extends State<SignUpForm> {
           ),
           const SizedBox(height: 5),
           TextFormField(
+            controller: passwordController,
             obscureText: true,
             decoration: customInputDecoration(
               hintText: "********",
@@ -76,7 +97,12 @@ class _SignUpFormState extends State<SignUpForm> {
           DefaultButton(
             text: "Create an Account",
             borderRadius: 20,
-            press: () {},
+            press: () async {
+              final email = await Helper.getUserEmail();
+              final password = await Helper.getUserPassword();
+              AuthServices.signUp(email!, password!);
+              Navigator.pushNamed(context, HomeScreen.routeName);
+            },
           ),
         ],
       ),
