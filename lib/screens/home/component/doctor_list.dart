@@ -1,3 +1,4 @@
+import 'package:devathon/screens/appointment/appointment_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../components/default_button.dart';
@@ -7,12 +8,10 @@ import '../../../size_config.dart';
 class DoctorList extends StatelessWidget {
   final String drName;
   final String field;
-  final VoidCallback press;
   const DoctorList({
     super.key,
     required this.drName,
     required this.field,
-    required this.press,
   });
 
   @override
@@ -53,7 +52,17 @@ class DoctorList extends StatelessWidget {
                 text: "Appointment",
                 backgroundColor: textFieldColor,
                 textColor: textColor,
-                press: press,
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: ((context) => AppointmentScreen(
+                            drName: drName,
+                            field: field,
+                          )),
+                    ),
+                  );
+                },
               ),
             ),
           ],

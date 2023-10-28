@@ -40,16 +40,14 @@ class Category extends StatelessWidget {
 
           // doctors
           SizedBox(height: getProportionateScreenWidth(20)),
-          DoctorList(
+          const DoctorList(
             drName: "Dr. Maria Waston",
             field: "Heart Surgeon, London, England",
-            press: () {},
           ),
           SizedBox(height: getProportionateScreenWidth(10)),
-          DoctorList(
+          const DoctorList(
             drName: "Dr. Stevi Jessi",
             field: "General Dentist",
-            press: () {},
           ),
         ],
       ),
