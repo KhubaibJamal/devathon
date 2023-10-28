@@ -1,11 +1,14 @@
+import 'package:devathon/components/default_button.dart';
 import 'package:devathon/const.dart';
 import 'package:devathon/size_config.dart';
 import 'package:flutter/material.dart';
 
 import 'component/about_doctor.dart';
 import 'component/dr_detail_box.dart';
+import 'component/schedule.dart';
+import 'component/visited_hours.dart';
 
-class AppointmentScreen extends StatelessWidget {
+class AppointmentScreen extends StatefulWidget {
   // static String routeName = "/appointment";
   final String drName;
   final String field;
@@ -15,6 +18,11 @@ class AppointmentScreen extends StatelessWidget {
     required this.field,
   });
 
+  @override
+  State<AppointmentScreen> createState() => _AppointmentScreenState();
+}
+
+class _AppointmentScreenState extends State<AppointmentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,29 +49,43 @@ class AppointmentScreen extends StatelessWidget {
               horizontal: getProportionateScreenWidth(15),
               vertical: getProportionateScreenWidth(10),
             ),
-            child: Column(
-              children: [
-                Image.asset(
-                  'assets/images/Rectangle 2.png',
-                ),
-                SizedBox(height: getProportionateScreenWidth(10)),
-                Text(drName, style: defaultTextStyle),
-                SizedBox(height: getProportionateScreenWidth(10)),
-                Text(
-                  field,
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: getProportionateScreenWidth(15),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Image.asset(
+                    'assets/images/Rectangle 2.png',
                   ),
-                ),
-                // dr detail box
-                SizedBox(height: getProportionateScreenWidth(10)),
-                const DrDetailBox(),
+                  SizedBox(height: getProportionateScreenWidth(10)),
+                  Text(widget.drName, style: defaultTextStyle),
+                  SizedBox(height: getProportionateScreenWidth(10)),
+                  Text(
+                    widget.field,
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: getProportionateScreenWidth(15),
+                    ),
+                  ),
+                  // dr detail box
+                  SizedBox(height: getProportionateScreenWidth(10)),
+                  const DrDetailBox(),
 
-                // about dr
-                SizedBox(height: getProportionateScreenWidth(20)),
-                const AboutDoctor(),
-              ],
+                  // about dr
+                  SizedBox(height: getProportionateScreenWidth(20)),
+                  const AboutDoctor(),
+
+                  // schedule
+                  SizedBox(height: getProportionateScreenWidth(20)),
+                  const Schedule(),
+
+                  // visit hours
+                  SizedBox(height: getProportionateScreenWidth(20)),
+                  const VisitedHours(),
+
+                  // button
+                  SizedBox(height: getProportionateScreenWidth(20)),
+                  DefaultButton(text: "Book Appointment", press: () {})
+                ],
+              ),
             ),
           ),
         ),
